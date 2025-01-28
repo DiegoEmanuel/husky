@@ -1,0 +1,44 @@
+#!/bin/sh
+# 📢 Arquivo supervisionado por: HUSKY, O FRANGO GUARDIÃO DOS COMMITS 🚨
+# Se você ler isso, ganhou 10 pontos nerds! 🎮
+
+# ---------------------------
+# CÓDIGO DE DEFESA CONTRA COMMIT RUIM
+# (Não mexa se não souber o que está fazendo)
+# ---------------------------
+
+# 🧹 ETAPA 1: FAXINA OBRIGATÓRIA
+echo "🐔 Cocoricó! Faxinando o código..."
+dart fix --apply || {
+  echo "🦤 Ah não! Algo deu errado na faxina (quem derramou café no código?)";
+  exit 1;
+}
+
+# 🔍 ETAPA 2: MODO SHERLOCK HOLMES ATIVADO
+echo "🕵️♂️ Checando se você não esqueceu um widget solto por aí..."
+flutter analyze || {
+  echo "🚨 ALERTA DE FRANGO: Tem warnings aí, chefia!";
+  echo "💡 Dica: Talvez tenha um 'print' esquecido (sempre tem)";
+  exit 1;
+}
+
+# 🧪 ETAPA 3: RITUAL DOS TESTES SAGRADOS
+echo "🧙♂️ Lançando feitiço de verificação de testes..."
+flutter test --no-pub --coverage || {
+  echo "💀 COMMIT BLOQUEADO!";
+  echo "🤡 Motivo: Teste falhou (provavelmente aquele que você pensou 'depois eu arrumo')";
+  exit 1;
+}
+
+# 📈 ETAPA 4: VERIFICAÇÃO DE COBERTURA (SIM, ISSO É UM SEQUESTRO)
+echo "📉 Verificando se você não tá fazendo corpo mole nos testes..."
+dart run tool/verify_coverage.dart || {
+  echo "❌ FRANGO INDIGNADO: Cobertura insuficiente!";
+  echo "👉 Faça mais testes que nem naqueles tutoriais do YouTube";
+  exit 1;
+}
+
+# ---------------------------
+# SE CHEGOU ATÉ AQUI... PARABÉNS! 🎉
+# ---------------------------
+echo "🚀 Commit autorizado! Você é quase um sênior agora (quase) 😎"
